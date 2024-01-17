@@ -1,3 +1,6 @@
+## UML DIAGRAM
+![image](https://github.com/Joysis-Coffee/Javacinno-Backend/assets/65775625/280fb114-b78a-4b8e-a33f-0673aaf3d6e0)
+
 ## Product
 The Product table keeps the information about each cod product.
 
@@ -49,4 +52,110 @@ Keeps a record of each transaction made.
 | **time_served** | The time it took to serve the customer. |
 | **status** | The status of the transaction (e.g., true: completed, false: Queeing). |
 | **total** | The total amount of the transaction. |
+
+
+
+# Product API Documentation
+
+## Endpoints
+
+### POST - Create a New Product
+`POST /api/v1/products`
+
+**Input**
+```json
+{
+    "name": "hot tea",
+    "type": "tea",
+    "small_price": "20",
+    "medium_price": "30",
+    "large_price": "40"
+}
+```
+
+**Output**
+```json
+{
+    "id": 5,
+    "name": "hot tea",
+    "type": "tea",
+    "small_price": 20,
+    "medium_price": 30,
+    "large_price": 40,
+    "revenue": 0,
+    "total_items_sold": 0
+}
+```
+
+### GET - Retrieve All Products
+`GET /api/v1/products`
+
+**Output**
+```json
+[
+    {
+        "id": 1,
+        "name": "thrdy",
+        "type": "espresso",
+        "small_price": 20.00,
+        "medium_price": 30.00,
+        "large_price": 10.00,
+        "revenue": 0.00,
+        "total_items_sold": 0.00
+    },
+    ...
+]
+```
+
+### PUT - Update Product Details
+`PUT /api/v1/products/3`
+
+**Input**
+```json
+{
+    "name": "Espressp",
+    "type": "Latte",
+    "small_price": "40",
+    "medium_price": "50",
+    "large_price": "60"
+}
+```
+
+**Output**
+```json
+{
+    "id": 3,
+    "name": "Espressp",
+    "type": "Latte",
+    "small_price": 40,
+    "medium_price": 50,
+    "large_price": 60,
+    "revenue": 0.00,
+    "total_items_sold": 0.00
+}
+```
+
+### GET - Retrieve Product by ID
+`GET /api/v1/products/5`
+
+**Output**
+```json
+{
+    "id": 5,
+    "name": "hot tea",
+    "type": "tea",
+    "small_price": 20.00,
+    "medium_price": 30.00,
+    "large_price": 40.00,
+    "revenue": 0.00,
+    "total_items_sold": 0.00
+}
+```
+
+### DELETE - Delete a Product
+`DELETE /api/v1/products/2`
+
+**No content is returned upon successful deletion.**
+
+
 
