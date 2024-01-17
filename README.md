@@ -159,3 +159,77 @@ Keeps a record of each transaction made.
 
 
 
+# Transaction API Documentation
+
+## Endpoints
+
+### POST - Create a New Transaction
+`POST /api/v1/transaction`
+
+**Input**
+```json
+{
+    "cashier_id": "2",
+    "customer_name": "dingdong dantes",
+    "cash": "100",
+    "change_amount": "10",
+    "time_served": "5 minutes and 5 seconds",
+    "status": true,
+    "total": 90
+}
+```
+
+**Output**
+```json
+{
+    "id": 2,
+    "cashier_id": 2,
+    "transaction_date": "2024-01-17T10:16:02.816+00:00",
+    "customer_name": "dingdong dantes",
+    "cash": 100,
+    "change_amount": 10,
+    "time_served": "5 minutes and 5 seconds",
+    "status": true,
+    "total": 90
+}
+```
+
+### GET - Retrieve All Transactions
+`GET /api/v1/transaction`
+
+**Output**
+```json
+[
+    {
+        "id": 1,
+        "cashier_id": 1,
+        "transaction_date": "2024-01-17T09:47:41.000+00:00",
+        "customer_name": "howard bayquen",
+        "cash": 200,
+        "change_amount": 20,
+        "time_served": "10 minutes and 5 seconds",
+        "status": true,
+        "total": 120
+    },
+    ...
+]
+```
+
+### GET - Retrieve Transaction by ID
+`GET /api/v1/transaction/2`
+
+**Output**
+```json
+{
+    "id": 2,
+    "cashier_id": 2,
+    "transaction_date": "2024-01-17T10:16:02.000+00:00",
+    "customer_name": "dingdong dantes",
+    "cash": 100,
+    "change_amount": 10,
+    "time_served": "5 minutes and 5 seconds",
+    "status": true,
+    "total": 90
+}
+```
+
