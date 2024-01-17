@@ -47,6 +47,6 @@ Keeps a record of each transaction made.
 | **cash** | The amount of cash given by the customer. |
 | **change_amount** | The amount of change returned to the customer. |
 | **time_served** | The time it took to serve the customer. |
-| **status** | The status of the transaction (e.g., completed, refunded). |
+| **status** | The status of the transaction (e.g., true: completed, false: Queeing). |
 | **total** | The total amount of the transaction. |
 
