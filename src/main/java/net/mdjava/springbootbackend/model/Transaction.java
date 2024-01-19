@@ -25,7 +25,7 @@ public class Transaction {
 
     @Column(name = "transaction_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date transaction_date;
+    private Date transactionDate;
 
     @Column(name = "customer_name")
     private String customer_name;
@@ -42,9 +42,12 @@ public class Transaction {
     @Column(name = "status")
     private boolean status;
 
+    @Column(name = "total")
+    private int total;
+
     @PrePersist
     protected void onCreate() {
-        transaction_date = new Date();
+        transactionDate = new Date();
     }
 
 }

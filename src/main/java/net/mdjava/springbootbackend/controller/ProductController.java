@@ -20,7 +20,7 @@ public class ProductController {
 
     @GetMapping
     public List<Product> index() {
-        return productRepository.findAll();
+        return productRepository.findAllByOrderByIdDesc();
     }
 
     // build create product REST API
