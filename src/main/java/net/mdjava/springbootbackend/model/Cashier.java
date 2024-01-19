@@ -1,5 +1,6 @@
 package net.mdjava.springbootbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "cashier")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cashier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

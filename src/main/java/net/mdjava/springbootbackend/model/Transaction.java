@@ -1,5 +1,6 @@
 package net.mdjava.springbootbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "cashier_id")
-    private long cashier_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cashier_id", referencedColumnName = "id")
+    private Cashier cashier; // Changed from cashier_id to cashier
 
     @Column(name = "transaction_date")
     @Temporal(TemporalType.TIMESTAMP)
@@ -48,6 +50,15 @@ public class Transaction {
     @PrePersist
     protected void onCreate() {
         transactionDate = new Date();
+    }
+
+    // Getter and setter for cashier
+    public Cashier getCashier() {
+        return cashier;
+    }
+
+    public void setCashier(Cashier cashier) {
+        this.cashier = cashier;
     }
 
 }
