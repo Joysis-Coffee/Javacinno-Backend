@@ -26,6 +26,13 @@ public class TransactionController {
         return transactionRepository.findAllByOrderByTransactionDateDesc();
     }
 
+    /**
+     * @return List<Transaction> of sales
+     */
+    public List<Transaction> getAllTransactionsWithSales() {
+        return transactionRepository.findAllWithSales();
+    }
+
     // build create transaction REST API
     @PostMapping
     public Transaction store(@RequestBody Transaction transaction) {

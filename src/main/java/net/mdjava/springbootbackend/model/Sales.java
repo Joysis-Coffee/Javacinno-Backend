@@ -14,16 +14,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "sales")
+
 public class Sales {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "transaction_id")
-    private long transaction_id;
+    private long transactionId;
 
-    @Column(name = "product_id")
-    private long product_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product; // Changed from cashier_id to cashier
 
     @Column(name = "size")
     private String size;
@@ -33,6 +36,7 @@ public class Sales {
 
     @Column(name = "quantity")
     private int quantity;
+
 
 
 }

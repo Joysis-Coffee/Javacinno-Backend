@@ -35,5 +35,15 @@ public class SalesController {
         return ResponseEntity.ok(transaction);
     }
 
+    // New endpoint to get all sales for a specific transaction
+    @GetMapping("/transaction/{transactionId}")
+    public ResponseEntity<List<Sales>> getSalesByTransactionId(@PathVariable Long transactionId) {
+        List<Sales> salesList = salesRepository.findByTransactionId(transactionId);
+        if (salesList.isEmpty()) {
+            throw new ResourceNotFoundException("Sales not found for transaction id: " + transactionId);
+        }
+        return ResponseEntity.ok(salesList);
+    }
+
 
 }

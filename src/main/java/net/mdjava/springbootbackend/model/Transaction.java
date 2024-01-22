@@ -47,6 +47,10 @@ public class Transaction {
     @Column(name = "total")
     private int total;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Sales sales;
+
     @PrePersist
     protected void onCreate() {
         transactionDate = new Date();
